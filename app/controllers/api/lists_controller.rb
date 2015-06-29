@@ -1,6 +1,4 @@
 class Api::ListsController < ApiController
-  before_action :authenticated?
-  before_action :authorize?
 
   def show
     @items = List.find(params[:id]).items

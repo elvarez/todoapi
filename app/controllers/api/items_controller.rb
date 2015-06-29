@@ -1,6 +1,4 @@
 class Api::ItemsController < ApiController
-  before_action :authenticated?
-  before_action :authorize?
 
   def create
     item = Item.new(item_params)
