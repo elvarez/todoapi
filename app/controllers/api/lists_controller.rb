@@ -1,6 +1,4 @@
 class Api::ListsController < ApiController
-  before_action :authenticated?
-  before_action :authorize?
 
   def show
     @items = List.find(params[:id]).items
@@ -9,7 +7,7 @@ class Api::ListsController < ApiController
   
   def create
     list = List.new(list_params)
-    list.user_id = params[:user_id]
+    list.user_id = current_user.id
     if list.save
       render json: list
     else

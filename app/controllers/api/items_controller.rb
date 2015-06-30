@@ -1,6 +1,4 @@
 class Api::ItemsController < ApiController
-  before_action :authenticated?
-  before_action :authorize?
 
   def create
     item = Item.new(item_params)
@@ -41,5 +39,8 @@ class Api::ItemsController < ApiController
   def current_resource
     @current_resource = Item.find(params[:id]) if params[:id]
   end
-  
+
+  def list_res
+    List.find(params[:list_id]) if params[:list_id]
+  end
 end

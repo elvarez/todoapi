@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :lists
     end
 
-    resources :lists, only: [] do
+    resources :lists, only: [:create] do
       resources :items, only: [:create]
     end
 

@@ -1,5 +1,4 @@
 class Api::UsersController < ApiController
-  before_action :authenticated?
 
   def show
     render text: controller
